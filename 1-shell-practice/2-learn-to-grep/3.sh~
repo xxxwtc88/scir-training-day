@@ -1,0 +1,2 @@
+#!/bin/sh
+grep -F -f 3a.dat 3b.dat -v

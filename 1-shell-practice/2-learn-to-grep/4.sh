@@ -1,0 +1,11 @@
+#!/bin/bash
+
+grep "Total: " 4.dat | while read line
+do
+	temp1=$(echo $line | grep -o "P=0.[0-9]*" | grep -o "0.[0-9]*")
+	printf "P=%.2f " $temp1	
+	temp2=$(echo $line | grep -o "R=0.[0-9]*" | grep -o "0.[0-9]*")
+	printf "R=%.2f " $temp2	
+	temp3=$(echo $line | grep -o "F=0.[0-9]*" | grep -o "0.[0-9]*")
+	printf "F=%.2f \n" $temp3	
+done >4.out
