@@ -3,22 +3,32 @@ import sys
 
 def read_instance(fp):
     sentence = []
+    word=''
     while True:
         line = fp.readline()
         if not line:
+  	    sentence.append( word.split() )
             yield sentence
             break
 
         line = line.strip()
 
         if len(line) == 0:
+  	    sentence.append( word.split() )
             yield sentence
             sentence = []
+            word=''
         else:
-            sentence.append( line.split() )
+            node=[]
+            node=line.split()
+	    word += bi2words(node)	
 
 
 def bi2words(chars):
+    if chars[1] == 'B':
+    	return ' '+chars[0]
+    else:
+    	return chars[0] 
     # insert your code here
 
 
